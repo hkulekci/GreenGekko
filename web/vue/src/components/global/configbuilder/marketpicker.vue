@@ -60,6 +60,8 @@ export default {
         });
       }
 
+      console.log(exchanges)
+
       return exchanges;
     },
     markets: function() {
@@ -67,11 +69,12 @@ export default {
     },
 
     assets: function() {
-      return this.exchanges ? this.exchanges[this.exchange].markets[this.currency] : null;
+      console.log(this.exchanges)
+      return this.exchanges && this.exchanges[this.exchange]  ? this.exchanges[this.exchange].markets[this.currency] : null;
     },
 
     currencies: function() {
-      return this.exchanges ? _.keys( this.exchanges[this.exchange].markets ) : null;
+      return this.exchanges && this.exchanges[this.exchange] ? _.keys( this.exchanges[this.exchange].markets ) : null;
     },
     watchConfig: function() {
       return {
